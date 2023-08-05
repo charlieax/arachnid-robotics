@@ -3,6 +3,7 @@
   "exclude": ["node_modules", "*.d.ts"],
   "compilerOptions": {
     "baseUrl": "src",
+    "outDir": "./bin",
     "types": ["vitest/globals"],
     "paths": {
       "@lib/*": ["lib/*"]
