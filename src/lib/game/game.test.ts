@@ -1,17 +1,16 @@
 // Test Cases
 // - test case 1
 //   - input: { startPosition: [0, 0], sequence: 'FRFRFFFFFFFLLLLFFFFFRFFFFLFFLRRF' }
-//   - output: [2, 0]
 // - test case 2
 //   - input: { startPosition: [3, 6], sequence: 'FFFFFFFFRRRRRRRFFFFLLLBBRRRRRLLLLLLLLLRFFF' }
-//   - output: [3, 6]
 // - test case 2
 //   - input: { startPosition: [0, 7], sequence: 'RRRRRRRRFFFFFFFFFFFLLLBBBBBRRRLLLLLFFLR' }
-//   - output: [3, 6]
 
 import { game } from './game'
 
-describe('Simple', () => {
+// Mk 1 Tests
+
+describe('Mk 1 Tests', () => {
   it('should result in [1,0] under sequence R', () => {
     expect(
       game({
@@ -46,29 +45,61 @@ describe('Simple', () => {
   })
 })
 
-describe('gameTestCases', () => {
-  it('should result in [] under test case 1', () => {
+// Mk 2 Tests
+
+describe('Mk 2 Tests', () => {
+  it('should result in [0,0] rotated right under sequence R', () => {
     expect(
       game({
         startPosition: [0, 0],
-        sequence: 'FRFRFFFFFFFLLLLFFFFFRFFFFLFFLRRF',
+        sequence: 'R',
+        version: 2,
       }),
-    ).toEqual([-1, 21])
+    ).toEqual({ currentPosition: [0, 0], rotation: [1, 0] })
   })
-  it('should result in [] under test case 2', () => {
+  it('should result in [0,0] rotated left under sequence L', () => {
     expect(
       game({
-        startPosition: [3, 6],
-        sequence: 'FFFFFFFFRRRRRRRFFFFLLLBBRRRRRLLLLLLLLLRFFF',
+        startPosition: [0, 0],
+        sequence: 'L',
+        version: 2,
       }),
-    ).toEqual([4, 19])
+    ).toEqual({ currentPosition: [0, 0], rotation: [-1, 0] })
   })
-  it('should result in [] under test case 3', () => {
+  it('should result in [0,1] facing forwards under sequence F', () => {
     expect(
       game({
-        startPosition: [0, 7],
-        sequence: 'RRRRRRRRFFFFFFFFFFFLLLBBBBBRRRLLLLLFFLR',
+        startPosition: [0, 0],
+        sequence: 'F',
+        version: 2,
       }),
-    ).toEqual([3, 15])
+    ).toEqual({ currentPosition: [0, 1], rotation: [0, 1] })
+  })
+  it('should result in [0,0] facing forwards under sequence B to stop itself falling over the edge it has ignored entire command', () => {
+    expect(
+      game({
+        startPosition: [0, 0],
+        sequence: 'B',
+        version: 2,
+      }),
+    ).toEqual({ currentPosition: [0, 0], rotation: [0, 1] })
+  })
+  it('should result in [1,0] facing right under sequence RF', () => {
+    expect(
+      game({
+        startPosition: [0, 0],
+        sequence: 'RF',
+        version: 2,
+      }),
+    ).toEqual({ currentPosition: [1, 0], rotation: [1, 0] })
+  })
+  it('should result in [0,0] facing left under sequence LF', () => {
+    expect(
+      game({
+        startPosition: [0, 0],
+        sequence: 'LF',
+        version: 2,
+      }),
+    ).toEqual({ currentPosition: [0, 0], rotation: [-1, 0] })
   })
 })

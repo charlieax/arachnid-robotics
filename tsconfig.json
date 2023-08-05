@@ -4,9 +4,6 @@
   "compilerOptions": {
     "baseUrl": "src",
     "outDir": "./bin",
-    "types": ["vitest/globals"],
-    "paths": {
-      "@lib/*": ["lib/*"]
-    }
+    "types": ["vitest/globals"]
   }
 }

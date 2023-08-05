@@ -1,6 +1,5 @@
 /// <reference types= "vitest" />
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   test: {
@@ -9,5 +8,4 @@ export default defineConfig({
 
     exclude: ['**/node_modules/**'],
   },
-  plugins: [tsconfigPaths()],
 })

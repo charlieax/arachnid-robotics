@@ -20,3 +20,8 @@ This is a demo repo for the Arachnid Robotics challenge.s
 
 - There is an infinite board
 - Side to side movement does not turn the robot
+
+# Part Two Assumptions
+
+- Infinite board Upwards and to the right, finite left and down
+- If the robot is due to go backwards but won't due to the edge, it doesn't turn around at all
