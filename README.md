@@ -25,3 +25,12 @@ This is a demo repo for the Arachnid Robotics challenge.s
 
 - Infinite board Upwards and to the right, finite left and down
 - If the robot is due to go backwards but won't due to the edge, it doesn't turn around at all
+
+# Part Three Assumptions
+
+- If the robot runs out of fuel and wants to do another boost, it just stops
+- If the robot tries to boost for more than 5 spaces, it overheats and stops
+
+# General Thougths
+
+- Simple version control to keep each part very separate and guarantee compatibility with Mk1 and Mk2

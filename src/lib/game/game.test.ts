@@ -1,12 +1,16 @@
-import { gameV1 } from '../../lib/gameV1'
-import { gameV2 } from '../../lib/gameV2'
+import { gameV1 } from '../gameV1'
+import { gameV2 } from '../gameV2'
+import { gameV3 } from '../gameV3'
 import { game } from './game'
 
-vi.mock('../../lib/gameV1', () => ({
+vi.mock('../gameV1', () => ({
   gameV1: vi.fn(),
 }))
-vi.mock('../../lib/gameV2', () => ({
+vi.mock('../gameV2', () => ({
   gameV2: vi.fn(),
+}))
+vi.mock('../gameV3', () => ({
+  gameV3: vi.fn(),
 }))
 
 describe('game', () => {
@@ -17,5 +21,9 @@ describe('game', () => {
   it('should run gameV2 when version 2 is called', () => {
     game({ startPosition: [0, 0], sequence: 'R', version: 2 })
     expect(gameV2).toHaveBeenCalled()
+  })
+  it('should run gameV3 when version 3 is called', () => {
+    game({ startPosition: [0, 0], sequence: 'R', version: 3 })
+    expect(gameV3).toHaveBeenCalled()
   })
 })

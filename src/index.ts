@@ -15,6 +15,17 @@ let testCases = [
   },
 ]
 
+let testCasesMk3 = [
+  {
+    startPosition: [0, 0],
+    sequence: 'FFFFFF3FLFFFFFFR5FL',
+  },
+  {
+    startPosition: [4, 3],
+    sequence: 'FFFFFFFF5FRFFFFFF3FRFFFFFFLFFFFF5FFF5FFFFFFFLFFFFF',
+  },
+]
+
 console.log('testCases - Mk1')
 testCases.forEach((testCase) => {
   console.log(game(testCase))
@@ -23,4 +34,10 @@ testCases.forEach((testCase) => {
 console.log('testCases - Mk2')
 testCases.forEach((testCase) => {
   console.log(game({ ...testCase, version: 2 }))
+})
+
+console.log('testCases - Mk3')
+
+testCasesMk3.forEach((testCase) => {
+  console.log(game({ ...testCase, version: 3 }))
 })

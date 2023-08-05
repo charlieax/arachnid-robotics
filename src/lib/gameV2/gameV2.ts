@@ -25,8 +25,6 @@ export function gameV2({ startPosition, sequence }: gameProps) {
     if (next.currentPosition[0] >= 0 && next.currentPosition[1] >= 0) {
       current = { ...next }
     }
-    console.log('step:', index)
-    console.log('position:', current)
   })
 
   return current
