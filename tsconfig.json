@@ -1,0 +1,11 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "exclude": ["node_modules", "*.d.ts"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "types": ["vitest/globals"],
+    "paths": {
+      "@lib/*": ["lib/*"]
+    }
+  }
+}
